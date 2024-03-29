@@ -19,7 +19,7 @@ exports.register = async function (req, res) {
 exports.successGoogleLogin = async function (req, res) {
     if (!req.user)
         res.redirect('/auth/google-failure');
-    res.status(200).send({ message: `Welcome ${req.user}`})
+    res.status(200).send({ message: `Welcome ${JSON.stringify(req.user)}`})
 }
 
 exports.failGoogleLogin = (req, res) => {
