@@ -12,7 +12,7 @@ passport.deserializeUser(function (user, done) {
 passport.use(new GoogleStrategy({
     clientID: config.CLIENT_ID,
     clientSecret: config.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/auth/google/callback",
+    callbackURL: "https://good-blue-kitten-coat.cyclic.app/auth/auth/google/callback",
     passReqToCallback: true
 },
     function (request, accessToken, refreshToken, profile, done) {
