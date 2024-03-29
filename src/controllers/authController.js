@@ -19,19 +19,7 @@ exports.register = async function (req, res) {
 exports.successGoogleLogin = async function (req, res) {
     if (!req.user)
         res.redirect('/auth/google-failure');
-    console.log(req.user);
-    const userData = {
-        "username": req.user.name.givenName,
-        "email": req.user.email,
-        "password": req.user.accessToken,
-        "profile": {
-            "name": req.user.displayName,
-            "photo": req.user.photos[0].value,
-            "public": true
-        },
-        "isAdminRole": true
-    };
-    await exports.register({ body: userData }, res);
+    res.status(200).send({ message: `Welcome ${req.user}`})
 }
 
 exports.failGoogleLogin = (req, res) => {
